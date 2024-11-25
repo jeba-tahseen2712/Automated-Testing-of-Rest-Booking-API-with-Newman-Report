@@ -46,6 +46,9 @@ git clone https://github.com/jeba-tahseen2712/Automated-Testing-of-Rest-Booking-
 -Select **Import** and choose the Postman environment file from the cloned repository.
 5. Newman and Report Installation:<br>
 -Install Newman globally: <br>
- npm install -g newman<br>
+```bash
+npm install -g newman
+<br>
 -Newman Html Report Install Command:<br>
+```bash
  npm install -g newman-reporter-htmlextra
