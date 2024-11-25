@@ -49,5 +49,4 @@ git clone https://github.com/jeba-tahseen2712/Automated-Testing-of-Rest-Booking-
 -Install Newman globally & Newman Html Report Install Command:
 ```bash
 npm install -g newman
-```bash
- npm install -g newman-reporter-htmlextra
+npm install -g newman-reporter-htmlextra
