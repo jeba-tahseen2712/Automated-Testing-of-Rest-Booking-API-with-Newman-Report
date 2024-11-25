@@ -12,7 +12,7 @@
 
 ## API Documentation
 
-View the API documentation [here](https://documenter.getpostman.com/view/13082503/2sA2xmUAJ1).
+View the API documentation [https://documenter.getpostman.com/view/13082503/2sA2xmUAJ1].
 
 ## Technology Used
 
