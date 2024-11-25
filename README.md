@@ -80,4 +80,24 @@ npm install -g newman-reporter-htmlextra
 
 - **Pre-request Script:**  
   
+```bash
+var firstname=pm.variables.replaceIn("{{$randomFirstName}}")
+pm.environment.set("firstname", firstname)
 
+var lastname=pm.variables.replaceIn("{{$randomLastName}}")
+pm.environment.set("lastname", lastname)
+
+var totalprice= pm.variables.replaceIn("{{$randomInt}}")
+pm.environment.set("totalprice",totalprice)
+
+var depositpaid= pm.variables.replaceIn("{{ $randomBoolean}}")
+pm.environment.set("depositpaid", Boolean(depositpaid))
+
+const moment= require("moment")
+const today = moment()
+pm.environment.set("checkin", today.format("YYYY-MM-DD"))
+pm.environment.set("checkout", today.add(4,'M').format("YYYY-MM-DD"))
+
+var additionalneeds =pm.variables.replaceIn("{{$randomProduct}}")
+pm.environment.set("additionalneeds",additionalneeds)
+```
