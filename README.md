@@ -25,7 +25,6 @@
 2. **Newman**
 3. **Newman HTML Report Library**
 
-t
 
 ## Installation
 
@@ -52,5 +51,33 @@ git clone https://github.com/jeba-tahseen2712/Automated-Testing-of-Rest-Booking-
 npm install -g newman
 npm install -g newman-reporter-htmlextra
 ```
+## Usage
 
+### 1. Select Environment
+- In **Postman**, choose the appropriate environment (e.g., Development, Production) from the dropdown menu in the top-right corner.
+
+### 2. Run Collection
+1. Select the imported collection from the **Collections** sidebar.
+2. Click on the **Runner** button to open the Collection Runner.
+3. Choose the desired environment.
+4. Click **Start Test** to execute the collection.
+
+### 3. View Results
+- Once the tests are complete, view the results in the **Runner** tab.
+- Detailed test results can be reviewed for each request.
+
+## Testing
+
+### Test Case Scenarios
+
+#### 1. Create New Booking
+
+- **Request URL:**  
+  `https://restful-booker.herokuapp.com/booking/`
+
+- **Request Method:**  
+  `POST`
+
+- **Pre-request Script:**  
+  
 
