@@ -102,6 +102,21 @@ var additionalneeds =pm.variables.replaceIn("{{$randomProduct}}")
 pm.environment.set("additionalneeds",additionalneeds)
 ```
 
+- **Post-request Script:**  
+  
+```bash
+var jsonData= pm.response.json()
+pm.environment.set("ID", jsonData.bookingid)
+
+pm.test("Successful POST request", function () {
+    pm.expect(pm.response.code).to.be.oneOf([200, 202]);
+});
+
+pm.test("Response time is less than two thousands ms", function () {
+    pm.expect(pm.response.responseTime).to.be.below(2000);
+});
+```
+
 - **Request Body:**  
   
 ```bash
@@ -144,6 +159,69 @@ pm.environment.set("additionalneeds",additionalneeds)
 - **Request Method:**  
   `GET`
 
+  - **Post-request Script:**  
+  
+```bash
+var jsonData= pm.response.json();
+
+pm.test("Status code is 200", function () {
+    pm.response.to.have.status(200);
+});
+
+
+
+pm.test("First name validation", function () {
+    pm.expect(jsonData.firstname).to.be.a('string');
+});
+
+pm.test("First name validation", function () {
+    pm.expect(jsonData.firstname).to.eql(pm.environment.get("firstname"))
+});
+
+
+pm.test("Last name varification", function () {
+     pm.expect(jsonData.lastname).to.exist.and.to.be.a('string');
+});
+
+pm.test("Last name varification", function () {
+     pm.expect(jsonData.lastname).to.eql(pm.environment.get("lastname"))
+});
+
+pm.test("Total price validation", function () {
+     pm.expect(jsonData.totalprice).to.be.a('number');
+});
+
+pm.test("Total price validation", function(){
+    pm.expect(jsonData.totalprice).to.eql(Number(pm.environment.get("totalprice")));
+});
+
+pm.test("verify deppositpaid", function () {
+     pm.expect(jsonData.depositpaid).to.be.a('boolean');
+});
+
+pm.test("Depositpaid varification", function(){
+    pm.expect(jsonData.depositpaid).to.eql(pm.environment.get("depositpaid"))
+});
+
+
+pm.test("Checkin Valiation", function () {
+     pm.expect(pm.response.json()).to.be.an('object');
+     pm.expect(pm.response.json().bookingdates.checkin).to.exist.and.to.be.a('string');
+});
+
+pm.test("Checkin Validation",function(){
+    pm.expect(jsonData.bookingdates.checkin).to.eql(pm.environment.get("checkin"))
+});
+
+pm.test("Checkout Validation",function(){
+    pm.expect(jsonData.bookingdates.checkout).to.eql(pm.environment.get("checkout"))
+})
+
+pm. test("Verify additionalneeds",function(){
+    pm.expect(jsonData.additionalneeds).to.eql(pm.environment.get("additionalneeds"))
+});
+```
+
 - **Response Body:**  
   ```bash
   {
@@ -179,7 +257,7 @@ pm.environment.set("additionalneeds",additionalneeds)
 }
 ```
 
-- **Response Bode:**
+- **Response Body:**
 ```bash
 {
     "token": "955eb1696e2340a"
