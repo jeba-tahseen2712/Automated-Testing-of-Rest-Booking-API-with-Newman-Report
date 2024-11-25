@@ -34,8 +34,9 @@ If you haven't already, [download and install Postman](https://www.postman.com/d
 
 ### 2. Clone the Repository
 Clone this repository to your local machine:  
+```bash
 git clone https://github.com/jeba-tahseen2712/Automated-Testing-of-Rest-Booking-API-with-Newman-Report.git
-
+```
 
 ### 3. Import the Postman Collection
 -Open Postman.
@@ -50,5 +51,6 @@ git clone https://github.com/jeba-tahseen2712/Automated-Testing-of-Rest-Booking-
 ```bash
 npm install -g newman
 npm install -g newman-reporter-htmlextra
-(`)
-jjjjjjjjjj
+```
+
+
