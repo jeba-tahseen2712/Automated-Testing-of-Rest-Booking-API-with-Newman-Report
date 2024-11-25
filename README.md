@@ -155,9 +155,9 @@ pm.environment.set("additionalneeds",additionalneeds)
         "checkin": "2024-11-26",
         "checkout": "2025-03-26"
     },
-    "additionalneeds": "Car"
-}
-```
+    "additionalneeds": "Car"}
+  
+  ```
 
 ### 3. Create Token
 
