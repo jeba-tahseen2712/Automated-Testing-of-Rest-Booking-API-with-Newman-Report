@@ -101,3 +101,172 @@ pm.environment.set("checkout", today.add(4,'M').format("YYYY-MM-DD"))
 var additionalneeds =pm.variables.replaceIn("{{$randomProduct}}")
 pm.environment.set("additionalneeds",additionalneeds)
 ```
+
+- **Request Body:**  
+  
+```bash
+  {
+     "firstname" : "{{firstName}}",
+     "lastname" : "{{lastName}}",
+     "totalprice" : {{totalPrice}},
+     "depositpaid" : {{depositPaid}},
+     "bookingdates" : {
+   	  "checkin" : "{{checkin}}",
+   	  "checkout" : "{{checkout}}"
+     },
+     "additionalneeds" : "{{additionalNeeds}}"
+ }
+```
+
+- **Response Body:**  
+  
+```bash
+{
+    "bookingid": 3113,
+    "booking": {
+        "firstname": "Donato",
+        "lastname": "O'Conner",
+        "totalprice": 852,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2024-11-26",
+            "checkout": "2025-03-26"
+        },
+        "additionalneeds": "Shoes"
+    }
+}
+```
+#### 2. Get Booking Details By ID
+
+- **Request URL:**  
+  `https://restful-booker.herokuapp.com/booking/{bookingid}`
+
+- **Request Method:**  
+  `GET`
+
+- **Response Body:**  
+  ```bash
+  {
+    "firstname": "Evelyn",
+    "lastname": "Will",
+    "totalprice": 59,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-11-26",
+        "checkout": "2025-03-26"
+    },
+    "additionalneeds": "Car"
+}
+```
+#### 3. Create a Token for Authentication
+
+- **Request URL:**  
+  `https://restful-booker.herokuapp.com/auth`
+
+- **Request Method:**  
+  `POST`
+
+- **Pre-request Script:**  
+  None
+
+- **Request Body:**
+``bash
+{
+   "username": "admin",
+   "password": "password123"
+}
+```
+- **Response Bode:**
+```bash
+{
+    "token": "955eb1696e2340a"
+}
+```
+#### 4. Update the Booking Details
+
+- **Request URL:**  
+  `https://restful-booker.herokuapp.com/booking/{bookingid}`
+
+- **Request Method:**  
+  `PUT`
+
+- **Pre-request Script:**
+
+```bash
+var firstname=pm.variables.replaceIn("{{$randomFirstName}}")
+pm.environment.set("Ufirstname", firstname)
+
+var lastname=pm.variables.replaceIn("{{$randomLastName}}")
+pm.environment.set("Ulastname", lastname)
+
+var totalprice= pm.variables.replaceIn("{{$randomInt}}")
+pm.environment.set("Utotalprice",totalprice)
+
+var depositpaid= pm.variables.replaceIn("{{ $randomBoolean}}")
+pm.environment.set("Udepositpaid", Boolean(depositpaid))
+
+const moment= require("moment")
+const today = moment()
+pm.environment.set("Ucheckin", today.format("YYYY-MM-DD"))
+pm.environment.set("Ucheckout", today.add(4,'M').format("YYYY-MM-DD"))
+
+var additionalneeds =pm.variables.replaceIn("{{$randomProduct}}")
+pm.environment.set("Uadditionalneeds",additionalneeds)
+```
+
+- **Request Body:**
+```bash
+{
+	"firstname" : "{{Ufirstname}}",
+	"lastname" : "{{Ulastname}}",
+	"totalprice" :"{{Utotalprice}}",
+	"depositpaid" : "{{Udepositpaid}}",
+	"bookingdates" : {
+    	"checkin" : "{{Ucheckin}}",
+    	"checkout" : "{{Ucheckout}}"
+	},
+	"additionalneeds" : "{{Uadditionalneeds}}"
+}
+```
+- **Response Body:**
+```bash
+{
+    "firstname": "Jesus",
+    "lastname": "Heaney",
+    "totalprice": 87,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2024-11-26",
+        "checkout": "2025-03-26"
+    },
+    "additionalneeds": "Salad"
+}
+```
+
+#### 5. Delete Booking Record
+
+- **Request URL:**  
+  `https://restful-booker.herokuapp.com/booking/{bookingid}`
+
+- **Request Method:**  
+  `DELETE`
+
+- **Response Body:**  
+  None
+
+### Run Command:  
+
+- **Run Command for Report:**  
+  ```bash
+newman run Batch28-2024.postman_collection.json -e batch28-2024.postman_environment.json
+  ```
+
+###** Newman Report Summary:**
+![image](https://github.com/user-attachments/assets/47c653f2-5c61-4df8-92b7-cd3abcc1b022)
+![image](https://github.com/user-attachments/assets/769b4e6c-78ad-4337-ba62-e5fccd6361a1)
+![image](https://github.com/user-attachments/assets/bbc69e2a-fcfe-4831-8c4a-ab1c4a27dfc8)
+![image](https://github.com/user-attachments/assets/bc469b99-3ede-4cb1-a821-b5274f42214f)
+![image](https://github.com/user-attachments/assets/b7acdb28-8bff-42cd-83ab-44d04a2b4e7e)
+
+
+
