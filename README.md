@@ -158,7 +158,7 @@ pm.environment.set("additionalneeds",additionalneeds)
     "additionalneeds": "Car"
 }
 ```
-#### 3. Create a Token for Authentication
+### 3. Create a Token for Authentication
 
 - **Request URL:**  
   `https://restful-booker.herokuapp.com/auth`
@@ -170,19 +170,21 @@ pm.environment.set("additionalneeds",additionalneeds)
   None
 
 - **Request Body:**
+
 ``bash
 {
    "username": "admin",
    "password": "password123"
 }
 ```
+
 - **Response Bode:**
 ```bash
 {
     "token": "955eb1696e2340a"
 }
 ```
-#### 4. Update the Booking Details
+### 4. Update the Booking Details
 
 - **Request URL:**  
   `https://restful-booker.herokuapp.com/booking/{bookingid}`
@@ -228,7 +230,9 @@ pm.environment.set("Uadditionalneeds",additionalneeds)
 	"additionalneeds" : "{{Uadditionalneeds}}"
 }
 ```
+
 - **Response Body:**
+- 
 ```bash
 {
     "firstname": "Jesus",
@@ -243,7 +247,7 @@ pm.environment.set("Uadditionalneeds",additionalneeds)
 }
 ```
 
-#### 5. Delete Booking Record
+### 5. Delete Booking Record
 
 - **Request URL:**  
   `https://restful-booker.herokuapp.com/booking/{bookingid}`
@@ -261,7 +265,8 @@ pm.environment.set("Uadditionalneeds",additionalneeds)
 newman run Batch28-2024.postman_collection.json -e batch28-2024.postman_environment.json
   ```
 
-###** Newman Report Summary:**
+### Report:
+
 ![image](https://github.com/user-attachments/assets/47c653f2-5c61-4df8-92b7-cd3abcc1b022)
 ![image](https://github.com/user-attachments/assets/769b4e6c-78ad-4337-ba62-e5fccd6361a1)
 ![image](https://github.com/user-attachments/assets/bbc69e2a-fcfe-4831-8c4a-ab1c4a27dfc8)
