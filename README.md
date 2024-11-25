@@ -158,7 +158,7 @@ pm.environment.set("additionalneeds",additionalneeds)
     "additionalneeds": "Car"
 }
 ```
-### 3. Create a Token for Authentication
+## 3. Create a Token for Authentication
 
 - **Request URL:**  
   `https://restful-booker.herokuapp.com/auth`
@@ -169,9 +169,9 @@ pm.environment.set("additionalneeds",additionalneeds)
 - **Pre-request Script:**  
   None
 
-- **Request Body:**
+- **Request Body:**  
 
-``bash
+```bash
 {
    "username": "admin",
    "password": "password123"
@@ -232,7 +232,7 @@ pm.environment.set("Uadditionalneeds",additionalneeds)
 ```
 
 - **Response Body:**
-- 
+
 ```bash
 {
     "firstname": "Jesus",
@@ -261,9 +261,10 @@ pm.environment.set("Uadditionalneeds",additionalneeds)
 ### Run Command:  
 
 - **Run Command for Report:**  
-  ```bash
+  ```bash{
 newman run Batch28-2024.postman_collection.json -e batch28-2024.postman_environment.json
-  ```
+}
+```
 
 ### Report:
 
