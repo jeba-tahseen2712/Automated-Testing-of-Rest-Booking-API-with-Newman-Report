@@ -1,0 +1,1 @@
+newman run Batch28-2024.postman_collection.json -e batch28-2024.postman_environment.json
