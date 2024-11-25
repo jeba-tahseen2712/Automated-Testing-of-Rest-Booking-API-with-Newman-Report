@@ -37,7 +37,8 @@ Clone this repository to your local machine:
 ```bash
 git clone https://github.com/jeba-tahseen2712/Automated-Testing-of-Rest-Booking-API-with-Newman-Report.git
 
----
+```\bash
+
 ## Importing Postman Collection and Environment
 
 ### Import the Postman Collection
